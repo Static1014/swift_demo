@@ -10,16 +10,37 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tfLeft_: UITextField!
+    @IBOutlet weak var tfRight_: UITextField!
+    @IBOutlet weak var btn: UIButton!
+    @IBOutlet weak var lblResult_: UILabel!
+    
+    @IBAction func clickBtn(sender: UIButton) {
+        self.editEnd(sender)
+        
+        let l = tfLeft_.text.toInt()
+        let r = tfRight_.text.toInt()
+        if l != nil && r != nil {
+            lblResult_.text = "\(l!+r!)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func editEnd(sender: AnyObject) {
+        tfLeft_.resignFirstResponder()
+        tfRight_.resignFirstResponder()
+    }
+    @IBAction func clickScreen(sender: AnyObject) {
+        tfLeft_.resignFirstResponder()
+        tfRight_.resignFirstResponder()
+    }
 
 }
 
